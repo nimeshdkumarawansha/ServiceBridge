@@ -1,0 +1,14 @@
+<?php
+
+namespace Domain\Facades\{{ class }}Facade;
+
+use Illuminate\Support\Facades\Facade;
+use Domain\Services\{{ class }}Service\{{ class }}Service;
+
+class {{ class }}Facade extends Facade
+{
+    protected static function getFacadeAccessor()
+    {
+        return {{ class }}Service::class;
+    }
+}

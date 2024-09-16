@@ -1,0 +1,52 @@
+<?php
+
+namespace Domain\Services\{{ class }}Service;
+
+use App\Models\{{ class }};
+
+class {{ class }}Service
+{
+    protected ${{ model }};
+
+    public function __construct()
+    {
+        $this->{{ model }} = new {{ class }}();
+    }
+
+    public function get(int ${{ model }}_id)
+    {
+        return $this->{{ model }}->find(${{ model }}_id);
+    }
+
+    public function create(array $data)
+    {
+       return $this->{{ model }}->create($data);
+    }
+
+    public function read($id)
+    {
+        // Implement read functionality
+    }
+
+     protected function edit({{ class }} ${{ model }}, array $data)
+    {
+        return array_merge(${{ model }}->toArray(), $data);
+    }
+
+    public function update(${{ model }}_id , array $data)
+    {
+        ${{ model }} = $this->{{ model }}->find(${{ model }}_id);
+        return ${{ model }}->update($this->edit(${{ model }}, $data));
+    }
+
+    public function delete($id)
+    {
+       ${{ model }} = $this->{{ model }}->find($id);
+       return ${{ model }}->delete();
+    }
+
+    public function list()
+    {
+       return $this->{{ model }}->all();
+    }
+}
